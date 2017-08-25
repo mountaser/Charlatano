@@ -38,6 +38,7 @@ import com.charlatano.settings.ENABLE_BONE_TRIGGER
 import com.charlatano.settings.ENABLE_RAGE
 import com.charlatano.utils.Dojo
 import org.jetbrains.kotlin.cli.common.environment.setIdeaIoUseFallback
+import java.awt.event.KeyEvent
 import java.io.File
 import java.io.FileReader
 import java.util.*
@@ -49,7 +50,7 @@ fun main(args: Array<String>) {
 	System.setProperty("kotlin.compiler.jar", "kotlin-compiler.jar")
 	
 	var holdtime = 0
-	System.out.println("Hold " + START_KEY + " for 3 seconds to begin.")
+	System.out.println("Hold " + KeyEvent.getKeyText(START_KEY) + " for 3 seconds to begin.")
 	while (holdtime < 3000) {
 		Thread.sleep(25)
 		if (keyPressed(START_KEY))
