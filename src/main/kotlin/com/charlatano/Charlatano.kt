@@ -41,6 +41,7 @@ import org.jetbrains.kotlin.cli.common.environment.setIdeaIoUseFallback
 import java.io.File
 import java.io.FileReader
 import java.util.*
+import org.jire.arrowhead.keyPressed
 
 const val SETTINGS_DIRECTORY = "settings"
 
