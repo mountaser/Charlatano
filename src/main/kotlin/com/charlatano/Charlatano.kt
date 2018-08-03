@@ -79,6 +79,7 @@ fun main(args: Array<String>) {
 			"reset" -> resetToggles()
 			"toggles", "t" -> printToggles()
 			"cls", "clear", "c" -> clearScreen()
+			"ranks", "ra" -> getRanks()
 		}
 	}
 }
@@ -131,6 +132,7 @@ private fun clearScreen() {
 	System.out.println(" | reload      | r      | reloads /settings       |")
 	System.out.println(" | reset       |        | disables all toggles    |")
 	System.out.println(" | toggles     | t      | show what is toggled    |")
+	System.out.println(" | ranks       | ra     | show Ranks              |")
 	System.out.println("  =============+========+=========================")
 	System.out.println()
 }
