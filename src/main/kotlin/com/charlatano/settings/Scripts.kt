@@ -18,6 +18,8 @@
 
 package com.charlatano.settings
 
+var ENABLE_AIM = true
+
 /**
  * Enables the bunny hop script.
  *

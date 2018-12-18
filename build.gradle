@@ -94,9 +94,13 @@ task charlatano {
 		
 		def bat = file(new File(dir, "Start ${name}.bat"))
 		Files.write(bat.toPath(), """@echo off
+title %random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%%random%
+echo Only continue once you are in game and can see your gun.
+echo.
+pause
+cls
 cd /d "%~dp0"
-title $name
-java -Xmx512m -Xms512m -jar "$jarName"
+java -Xmx1g -Xms1g -XX:+UseFastAccessorMethods -XX:+UseFastEmptyMethods -XX:+UseConcMarkSweepGC -XX:+EliminateLocks -XX:+AggressiveOpts -XX:+DoEscapeAnalysis -XX:+UseCompressedOops -jar "$jarName"
 pause""".getBytes())
 		
 		Files.copy(file("LICENSE.txt").toPath(), file(new File(dir, "LICENSE.txt")).toPath())

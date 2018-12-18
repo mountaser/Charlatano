@@ -27,6 +27,10 @@ import com.charlatano.scripts.aim.flatAim
 import com.charlatano.scripts.aim.pathAim
 import com.charlatano.scripts.esp.esp
 import com.charlatano.settings.*
+import com.charlatano.settings.ENABLE_AIM
+import com.charlatano.settings.ENABLE_BUNNY_HOP
+import com.charlatano.settings.ENABLE_RCS
+import com.charlatano.settings.ENABLE_BONE_TRIGGER
 import com.charlatano.utils.Dojo
 import com.sun.jna.platform.win32.WinNT
 import org.jetbrains.kotlin.cli.common.environment.setIdeaIoUseFallback
@@ -50,6 +54,12 @@ fun main(args: Array<String>) {
 	reducedFlash()
 	bombTimer()
 	
+ 	Toggles_AIM()
+ 	Toggles_BUNNYHOP()
+ 	Toggles_ESP()
+ 	Toggles_RCS()
+ 	Toggles_TRIGGER()
+	
 	if (LEAGUE_MODE) {
 		GLOW_ESP = false
 		BOX_ESP = false
@@ -64,13 +74,19 @@ fun main(args: Array<String>) {
 		PROCESS_ACCESS_FLAGS = WinNT.PROCESS_QUERY_INFORMATION or WinNT.PROCESS_VM_READ // all we need
 		GARBAGE_COLLECT_ON_MAP_START = true // get rid of traces
 	}
+ 	clearScreen()
 	
 	val scanner = Scanner(System.`in`)
 	while (!Thread.interrupted()) {
+ 		System.out.println()
+ 		System.out.print("> ")
 		when (scanner.nextLine()) {
-			"exit", "quit" -> System.exit(0)
-			"reload" -> loadSettings()
-			"ranks" -> getRanks()
+			"exit", "quit", "e", "q" -> System.exit(0)
+			"reload", "r" -> loadSettings()
+			"reset" -> resetToggles()
+			"toggles", "t" -> printToggles()
+			"cls", "clear", "c" -> clearScreen()
+            "ranks", "ra" -> getRanks()
 		}
 	}
 }
@@ -85,7 +101,43 @@ private fun loadSettings() {
 					.joinToString("\n"))
 		}
 	}
+
+	System.out.println("Loaded settings.")
 	
 	val needsOverlay = ENABLE_BOMB_TIMER or (ENABLE_ESP and (SKELETON_ESP or BOX_ESP))
 	if (!Overlay.opened && needsOverlay) Overlay.open()
+}
+
+private fun resetToggles() {
+	ENABLE_AIM = false
+	ENABLE_BUNNY_HOP = false
+	ENABLE_ESP = false
+	ENABLE_RCS = false
+	ENABLE_BONE_TRIGGER = false
+	
+	System.out.println("All togglables disabled.")
+}
+
+private fun printToggles(){
+	System.out.println("AIM      = " + ENABLE_AIM)
+	System.out.println("BunnyHop = " + ENABLE_BUNNY_HOP)
+	System.out.println("ESP      = " + ENABLE_ESP)
+	System.out.println("RCS      = " + ENABLE_RCS)
+	System.out.println("Trigger  = " + ENABLE_BONE_TRIGGER)
+}
+
+private fun clearScreen() {
+	repeat(512) { _ ->
+		System.out.print("\n")
+	}
+	System.out.println("   Command     | Alias  | Function");
+	System.out.println("  =============+========+=========================")
+	System.out.println(" | clear       | cls, c | clears console screen   |")
+	System.out.println(" | exit / quit | e, q   | stop MOUN:PRO           |")
+	System.out.println(" | reload      | r      | reloads /settings       |")
+	System.out.println(" | reset       |        | disables all toggles    |")
+	System.out.println(" | toggles     | t      | show what is toggled    |")
+	System.out.println(" | ranks       | ra     | show Ranks              |")
+	System.out.println("  =============+========+=========================")
+	System.out.println()
 }

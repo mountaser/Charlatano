@@ -44,9 +44,17 @@ internal fun glowEsp() = every(4) {
 				
 				val entityTeam = entity.team()
 				val team = !DANGER_ZONE && myTeam == entityTeam
+				var health = (entity.health() * 2 + 5).toInt()
+				
 				if (SHOW_ENEMIES && !team) {
-					glowAddress.glow(ENEMY_COLOR)
-					entity.chams(ENEMY_COLOR)
+					if (!HEALTH_BASED_GLOW) {
+					    glowAddress.glow(ENEMY_COLOR)
+  						entity.chams(ENEMY_COLOR)
+  					}
+  					else {
+  						glowAddress.glow(Color(health, 0, 255-health))
+  						entity.chams(Color(health, 0, 255-health))
+  					}
 				} else if (SHOW_TEAM && team) {
 					glowAddress.glow(TEAM_COLOR)
 					entity.chams(TEAM_COLOR)
