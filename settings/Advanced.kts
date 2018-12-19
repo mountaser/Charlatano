@@ -1,5 +1,5 @@
 /*
- * Charlatano: Free and open-source (FOSS) cheat for CS:GO/CS:CO
+ * Moun: Free and open-source (FOSS) cheat for CS:GO/CS:CO
  * Copyright (C) 2017 - Thomas G. P. Nappo, Jonathan Beaudoin
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import com.charlatano.settings.*
+import com.moun.settings.*
 import com.sun.jna.platform.win32.WinNT
 
 /**

@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Charlatano.iml" filepath="$PROJECT_DIR$/.idea/modules/Charlatano.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Charlatano_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Charlatano_main.iml" group="Charlatano" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Charlatano_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Charlatano_test.iml" group="Charlatano" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Moun.iml" filepath="$PROJECT_DIR$/.idea/modules/Moun.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Moun_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Moun_main.iml" group="Moun" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Moun_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Moun_test.iml" group="Moun" />
     </modules>
   </component>
 </project>

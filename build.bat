@@ -1,9 +1,9 @@
 @echo off
-title Charlatano Builder
+title Moun Builder
 :top
 cls
 echo Press any key to start build.
 pause > nul
 cls
-call gradlew charlatano
+call gradlew moun
 pause
